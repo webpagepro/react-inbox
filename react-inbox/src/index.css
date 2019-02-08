@@ -90,3 +90,16 @@ btn .btn-default{
   background-color:silver;
   border:1px solid #000;
 }
+
+input[type="select"]{
+width: auto;
+}
+
+.message a {
+  margin-left: 20px;
+}
+
+.fa-star{
+  content: "\F006";
+  margin:5px;
+}

@@ -9,10 +9,6 @@ import Messages from './components/Messages'
 class App extends Component {
 state={
   messages: [],
-  isLoading: true,
-  isRead: false,
-  isUnread: true,
-  isStarred: false,
   error:false
 }
 
@@ -23,13 +19,13 @@ componentDidMount = async () => {
       throw new Error('Bad request to API')
     }
     const messages = await res.json()
-   setTimeout(() => {
+   //setTimeout(() => {
 
       this.setState({
         messages: messages,
         isLoading: false
       })
-  }, 2000)
+ // }, 2000)
   }
 
   catch (error) {
