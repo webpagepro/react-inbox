@@ -96,10 +96,14 @@ width: auto;
 }
 
 .message a {
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 .fa-star{
   content: "\F006";
-  margin:5px;
+  margin:0 15px 0 15px;
+}
+
+.fa-star-o::before {
+  margin:0 15px 0 15px;
 }
