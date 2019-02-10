@@ -3,11 +3,28 @@ import Message from './Message'
 
 class Messages extends Component {
 
-
+   // selectedIndicator={this.selectedIndicator}
+   //         selectedIndicatorFunc={this.selectedIndicatorFunc}
 
     render() {
-console.log("Messages ", this)
-    let listOfMessages = this.props.messages.map(message => <Message key={message.id} message={message} /> )
+console.log("Messages ", this.props.toggleRead)
+    let listOfMessages = this.props.messages
+    .map(message => {
+      return  <Message 
+                key={message.id} 
+                message={message} 
+                toggleRead={this.props.toggleRead}
+                toggleStarred={this.props.toggleStarred} 
+                toggleSelected={this.props.toggleSelected}  
+                numOfUnreadMessages={this.props.numOfUnreadMessages}
+                markAsReadFunc={this.markAsReadFunc}
+
+                   /> 
+      })
+    console.log("listOfMessages", this.listOfMessages)
+
+
+    
 
         return (
             <div>

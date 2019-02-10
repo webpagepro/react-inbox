@@ -20,6 +20,7 @@
 
 .message.read {
   background: #efefef;
+  border:none;
 }
 
 .message.unread {
@@ -32,7 +33,7 @@
 
 .message:hover {
   margin-left: -3px;
-  border-left: 3px solid #ccc;
+  border-left: 3px solid transparent;
 }
 
 .message-body {
@@ -74,7 +75,11 @@ footer.spacer {
 }
 
 .row{
-  flex-wrap:nowrap
+  flex-wrap:nowrap;
+  border:none;
+}
+.row.message.hover a:hover{
+  border:none;
 }
 
 p.pull-right{
@@ -95,15 +100,32 @@ input[type="select"]{
 width: auto;
 }
 
-.message a {
-  margin-left: 40px;
+.row .message .read{
+  margin-left: 65px;
+  border:none;
 }
 
+.row .mesage .unread{
+margin-left:65px;
+border:none;
+}
+
+.row .message a{
+  padding-left:8px;
+  padding-right:8px;
+
+}
 .fa-star{
   content: "\F006";
-  margin:0 15px 0 15px;
+  padding:0 20px 0 5px;
 }
 
 .fa-star-o::before {
-  margin:0 15px 0 15px;
+  padding:0 20px 0 5px;
+}
+
+.isLoading{
+  font-weight:400;
+  text-decoration:blink;
+  color:red;
 }
