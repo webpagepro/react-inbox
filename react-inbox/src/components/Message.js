@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Message extends Component {
   state = {
     checked: false,
-    starred: false
   }
 
 
@@ -11,8 +10,7 @@ class Message extends Component {
     const { name, value } = e.target
     console.log("onChangeHandler ", name, value)
     this.setState({
-      checked: true,
-      starred:true
+      checked: true
     })
   }
   _onClick = (e)=> {
@@ -46,7 +44,7 @@ render() {
             </div>
             <div 
             >
-              <i   onClick={ () => this.props.toggleStarred(this.props.message)}  
+              <i key={this.props.message.id}  onClick={ () => this.props.toggleStarred(this.props.message)}  
              className={`col-xs-2 star fa fa-star${this.props.message.starred ? '-o': '' } `} 
               ></i>
             </div>

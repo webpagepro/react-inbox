@@ -118,7 +118,7 @@ class App extends Component {
       subject: selectedMessage.subject,
       read: !selectedMessage.read,
       starred: selectedMessage.starred,
-      labels: selectedMessage.labels
+     // labels: selectedMessage.labels
     }
     this.setState({
       messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)//[...otherMessages, this.changedMessages]
@@ -134,10 +134,10 @@ class App extends Component {
       subject: selectedMessage.subject,
       read: selectedMessage.read,
       starred: !selectedMessage.starred,
-      labels: selectedMessage.labels
+      //labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages///}//)//[...otherMessages, this.changedMessages]
+      messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)
     })
     console.log("toggleStarred", this.toggleStarred)
 
@@ -156,7 +156,7 @@ class App extends Component {
     this.setState({
       messages: otherMessages//.sort((a,b) => a.id - b.id)
     })
-    console.log("otherMessages", this.toggleSelected)
+    console.log("App - state.messages", this.state.messages)
 
   }
 
