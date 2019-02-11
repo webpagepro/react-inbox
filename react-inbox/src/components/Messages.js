@@ -17,7 +17,7 @@ console.log("Messages ", this.props.toggleRead)
                 toggleStarred={this.props.toggleStarred} 
                 toggleSelected={this.props.toggleSelected}  
                 numOfUnreadMessages={this.props.numOfUnreadMessages}
-                markAsReadFunc={this.markAsReadFunc}
+               
 
                    /> 
       })

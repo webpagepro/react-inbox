@@ -118,15 +118,20 @@ border:none;
 }
 .fa-star{
   content: "\F006";
-  margin:0 20px 0 5px;
+  margin:0 15px 0 15px;
+  z-index:99999;
 }
 
 .fa-star-o::before {
-  margin:0 20px 0 5px;
+  margin:0 15px 0 15px;
 }
 
 .isLoading{
   font-weight:400;
   text-decoration:blink;
   color:red;
+}
+
+.col-xs-2{
+
 }

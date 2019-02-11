@@ -23,7 +23,7 @@ class App extends Component {
       setTimeout(() => {
 
         this.setState({
-          messages: messages,
+          messages: messages.sort(),
           isLoading: false
         })
       }, 2000)
@@ -73,7 +73,7 @@ class App extends Component {
     //console.log("App amount selected ", this.selectedIndicator)
     return action;
   }
-  /*
+ 
   selectedIndicatorFunc = () => {
     let amountSelected = this.state.messages.filter(message => {
       return message.selected
@@ -94,7 +94,7 @@ class App extends Component {
         })
       })
     }
-  }  //  selectedIndicator={this.selectedIndicator}
+  }  /* selectedIndicator={this.selectedIndicator}
            // selectedIndicatorFunc={this.selectedIndicatorFunc}
             markAsUnReadFunc={this.markAsUnReadFunc}
             markAsReadFunc={this.markAsReadFunc}
@@ -107,7 +107,13 @@ class App extends Component {
     })))
   }
 
-
+  markAsUnReadFunc = () => {
+    let selectedMessages = this.state.filter(message => message.selected)
+    this.setState(this.state.messages.concat(selectedMessages.map(message => {
+      message.read = false
+      return message
+    })))
+  }
 
 
   toggleRead = (selectedMessage) => {
@@ -118,7 +124,7 @@ class App extends Component {
       subject: selectedMessage.subject,
       read: !selectedMessage.read,
       starred: selectedMessage.starred,
-     // labels: selectedMessage.labels
+     labels: selectedMessage.labels
     }
     this.setState({
       messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)//[...otherMessages, this.changedMessages]
@@ -127,17 +133,17 @@ class App extends Component {
     
 }
   toggleStarred = (selectedMessage) => {
-    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id)
+    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a,b) => a.id - b.id)
     console.log('otherMessages', otherMessages)
     let changedMessage = {
       id: selectedMessage.id,
       subject: selectedMessage.subject,
       read: selectedMessage.read,
       starred: !selectedMessage.starred,
-      //labels: selectedMessage.labels
+      labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)
+      messages: otherMessages.concat(changedMessage).sort((a,b) => a.id - b.id)
     })
     console.log("toggleStarred", this.toggleStarred)
 
@@ -151,10 +157,10 @@ class App extends Component {
       subject: selectedMessage.subject,
       read: selectedMessage.read,
       selected: !selectedMessage.selected,
-     // labels: selectedMessage.labels
+     labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)
+      messages: otherMessages.concat(changedMessage).sort((a,b) => a.id - b.id)
     })
     console.log("App - state.messages", this.state.messages)
 
@@ -164,18 +170,22 @@ class App extends Component {
     let numOfSelectedMessages = this.state.messages.filter(msg => msg.selected)
     let numOfUnreadMessages = this.state.messages.filter(msg => msg.read == false).length
 
+ 
+
     console.log("App numOfSelectedMessages - numOfUnreadMessages ", numOfSelectedMessages, numOfUnreadMessages)
     return (
 
       <div className="App">
-
-
         <Container>
         <TopNavBar />
           <Header className="App-header" />
-          <Toolbar messages={this.state.messages} 
+          <Toolbar messages={this.state.messages.sort()} 
                     numOfUnreadMessages={numOfUnreadMessages}
                     markAsReadFunc={this.markAsReadFunc}
+                    markAsUnReadFunc={this.markAsUnReadFunc}
+                    selectedIndicator={this.selectedIndicator}
+                    selectedIndicatorFunc={this.selectedIndicatorFunc}
+
           />
           {this.state.isLoading
             ? <div className="isLoading">Your email inbox is loading... </div>
@@ -183,6 +193,7 @@ class App extends Component {
               toggleRead={this.toggleRead}
               toggleStarred={this.toggleStarred}
               toggleSelected={this.toggleSelected}
+            
             />}
           <Footer />
 

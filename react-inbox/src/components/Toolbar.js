@@ -3,12 +3,19 @@ import { Form, FormGroup, Button} from 'reactstrap'
 class Toolbar extends Component {
 
     //          className={`fa fa${ this.props.selectedIndicator() }-square-o`}
-
+state={
+  disable: false
+}
     render() {
+
+      let someSelected = this.props.numOfSelectedMessages > 0 && this.props.numOfSelectedMessages < this.props.messages.length ? '-minus' : null;
+
+      let allSelected = this.props.numOfSelectedMessages == this.props.messages.length ? '-check' : null;
   
-
-
+      let noneSelected = this.props.numOfSelectedMessages === 0 ? '' : null;
+  
         console.log("Toolbar ", this.props.messages)
+
         return (
             <div>
            <div className="row toolbar">
@@ -20,19 +27,20 @@ class Toolbar extends Component {
 
     <button className="btn btn-default">
       <i  onClick={this.props.selectedIndicatorFunc}
-    className="fa fa-square-o"
+   // className={`fa fa${this.props.selectedIndicator}0 ? -square-o : -check-square-o`}
+   className={`fa fa${this.props.messages.length}-square-o`}
 
       ></i>
     </button>
 
     <button onClick={ () => this.props.markAsReadFunc}
-     className="btn btn-default"
+     className={`${this.props.messages.selected ? 'btn-primary' : ''}`}
     >
       Mark As Read
     </button>
 
     <button  onClick={ () => this.props.markAsUnReadFunc}
-    className="btn btn-default">
+     className={`${this.props.messages.selected ? 'btn-primary' : ''}`} >
       Mark As Unread
     </button>
 
