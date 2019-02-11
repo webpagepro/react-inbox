@@ -31,28 +31,27 @@ render() {
 
   return (
     <div>
-      <div className='row message unread'>
-        <div className="col-xs-1">
+      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.selected ? 'selected' : ''}`}>
+        <div className="col-xs-1 ">
           <div className="row">
             <div className="col-xs-2">
               <input
-                onClick={(e) => this.props.toggleRead(this.props.message)} 
+                onClick={(e) => this.props.toggleSelected(this.props.message)} 
                 type="checkbox"
                 checked={this.props.message.selected} 
                 onChange={this._onChangeHandler}
               />
             </div>
-            <div 
-            >
-              <i key={this.props.message.id}  onClick={ () => this.props.toggleStarred(this.props.message)}  
-             className={`col-xs-2 star fa fa-star${this.props.message.starred ? '-o': '' } `} 
+            <div className="col-xs-2">
+              <i className={`star fa fa-star${this.props.message.starred ? '': '-o'} `} 
+              onClick={ () => this.props.toggleStarred(this.props.message)} 
               ></i>
             </div>
           </div>
         </div>
         <div
         onClick={ () => this.props.toggleRead(this.props.message)}  
-        className={`row message ${this.props.message.read ? 'read' : 'unread'} `} 
+        className={`row message ${this.props.message.read ? '' : 'unread'} `} 
         >
           <a href="#">
 

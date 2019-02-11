@@ -89,6 +89,7 @@ p.pull-right{
 span.badge{
   background-color:#ccc;
   padding:5px;
+  border:1px solid #000;
 }
 
 btn .btn-default{
@@ -101,27 +102,27 @@ width: auto;
 }
 
 .row .message .read{
-  margin-left: 65px;
+  margin-left: 195px;
   border:none;
 }
 
 .row .mesage .unread{
-margin-left:65px;
 border:none;
 }
 
 .row .message a{
-  padding-left:8px;
-  padding-right:8px;
+  margin-left:8px;
+  margin-right:8px;
+  border:none;
 
 }
 .fa-star{
   content: "\F006";
-  padding:0 20px 0 5px;
+  margin:0 20px 0 5px;
 }
 
 .fa-star-o::before {
-  padding:0 20px 0 5px;
+  margin:0 20px 0 5px;
 }
 
 .isLoading{

@@ -154,7 +154,7 @@ class App extends Component {
      // labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages//.sort((a,b) => a.id - b.id)
+      messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)
     })
     console.log("App - state.messages", this.state.messages)
 
