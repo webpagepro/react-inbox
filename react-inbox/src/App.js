@@ -42,20 +42,20 @@ class App extends Component {
     this.props.message.selected = !message.selected
     this.setState(this.state.messages.concat(message))
   }
- /* 
-  addMessage = (data) => {
-    fetch('http://localhost:8000/messages/add')
-    method: POST,
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type' : 'application/json'
-    }
-  }).then(res => res.json())
-  .then(response => this.setState(({ messages }) =>
-  response.checked = false;
-  return {messages: [...message, response]}
- 
-*/
+  /* 
+   addMessage = (data) => {
+     fetch('http://localhost:8000/messages/add')
+     method: POST,
+     body: JSON.stringify(data),
+     headers: {
+       'Content-Type' : 'application/json'
+     }
+   }).then(res => res.json())
+   .then(response => this.setState(({ messages }) =>
+   response.checked = false;
+   return {messages: [...message, response]}
+  
+ */
 
   selectedIndicator = () => {
     let amountSelected = this.state.messages.filter(message => {
@@ -73,7 +73,7 @@ class App extends Component {
     //console.log("App amount selected ", this.selectedIndicator)
     return action;
   }
- 
+
   selectedIndicatorFunc = () => {
     let amountSelected = this.state.messages.filter(message => {
       return message.selected
@@ -124,16 +124,16 @@ class App extends Component {
       subject: selectedMessage.subject,
       read: !selectedMessage.read,
       starred: selectedMessage.starred,
-     labels: selectedMessage.labels
+      labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a,b) => b.id - a.id)//[...otherMessages, this.changedMessages]
-    })  
+      messages: otherMessages.concat(changedMessage).sort((a, b) => b.id - a.id)//[...otherMessages, this.changedMessages]
+    })
     //console.log("otherMessages", this.otherMessages)
-    
-}
+
+  }
   toggleStarred = (selectedMessage) => {
-    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a,b) => a.id - b.id)
+    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a, b) => a.id - b.id)
     console.log('otherMessages', otherMessages)
     let changedMessage = {
       id: selectedMessage.id,
@@ -143,57 +143,65 @@ class App extends Component {
       labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a,b) => a.id - b.id)
+      messages: otherMessages.concat(changedMessage).sort((a, b) => a.id - b.id)
     })
     console.log("toggleStarred", this.toggleStarred)
 
   }
 
   toggleSelected = (selectedMessage) => {
-    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a,b) => a.id - b.id)
+    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a, b) => a.id - b.id)
     console.log('otherMessages', otherMessages)
     let changedMessage = {
       id: selectedMessage.id,
       subject: selectedMessage.subject,
       read: selectedMessage.read,
       selected: !selectedMessage.selected,
-     labels: selectedMessage.labels
+      labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a,b) => a.id - b.id)
+      messages: otherMessages.concat(changedMessage).sort((a, b) => a.id - b.id)
     })
     console.log("App - state.messages", this.state.messages)
 
+  }
+
+  deleteMessage = () => {
+    this.setState({
+      messages:this.state.messages.filter(message => {
+        return !message.selected
+    })
+  })
   }
 
   render() {
     let numOfSelectedMessages = this.state.messages.filter(msg => msg.selected)
     let numOfUnreadMessages = this.state.messages.filter(msg => msg.read == false).length
 
- 
+
 
     console.log("App numOfSelectedMessages - numOfUnreadMessages ", numOfSelectedMessages, numOfUnreadMessages)
     return (
 
       <div className="App">
         <Container>
-        <TopNavBar />
+          <TopNavBar />
           <Header className="App-header" />
-          <Toolbar messages={this.state.messages.sort()} 
-                    numOfUnreadMessages={numOfUnreadMessages}
-                    markAsReadFunc={this.markAsReadFunc}
-                    markAsUnReadFunc={this.markAsUnReadFunc}
-                    selectedIndicator={this.selectedIndicator}
-                    selectedIndicatorFunc={this.selectedIndicatorFunc}
+          <Toolbar messages={this.state.messages.sort()}
+            numOfUnreadMessages={numOfUnreadMessages}
+            markAsReadFunc={this.markAsReadFunc}
+            markAsUnReadFunc={this.markAsUnReadFunc}
+            selectedIndicator={this.selectedIndicator}
+            selectedIndicatorFunc={this.selectedIndicatorFunc}
 
           />
           {this.state.isLoading
             ? <div className="isLoading">Your email inbox is loading... </div>
-            : <Messages messages={this.state.messages} 
+            : <Messages messages={this.state.messages}
               toggleRead={this.toggleRead}
               toggleStarred={this.toggleStarred}
               toggleSelected={this.toggleSelected}
-            
+
             />}
           <Footer />
 
