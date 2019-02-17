@@ -5,6 +5,7 @@ import TopNavBar from './components/TopNavBar';
 import Toolbar from './components/Toolbar';
 import Footer from './components/Footer';
 import Messages from './components/Messages';
+import './App.css'
 
 class App extends Component {
   state = {
@@ -20,14 +21,14 @@ class App extends Component {
         throw new Error('Bad request to API')
       }
       const messages = await res.json()
-      setTimeout(() => {
+      // setTimeout(() => {
 
-        this.setState({
-          messages: messages.sort(),
-          isLoading: false
-        })
-      }, 2000)
-      console.log("otherMessages", this.messages)
+      this.setState({
+        messages: messages.sort((a, b) => a.id - b.id),
+        isLoading: false
+      })
+      // }, 2000)
+      console.log("otherMessages", messages)
 
     }
 
@@ -100,7 +101,7 @@ class App extends Component {
             markAsReadFunc={this.markAsReadFunc}
  */
   markAsReadFunc = () => {
-    let selectedMessages = this.state.filter(message => message.selected)
+    let selectedMessages = this.state.filter(message => message.selected);
     this.setState(this.state.messages.concat(selectedMessages.map(message => {
       message.read = true
       return message
@@ -127,51 +128,31 @@ class App extends Component {
       labels: selectedMessage.labels
     }
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a, b) => b.id - a.id)//[...otherMessages, this.changedMessages]
+      messages: otherMessages.concat(changedMessage).sort((a, b) => a.id - b.id)//[...otherMessages, this.changedMessages]
     })
     //console.log("otherMessages", this.otherMessages)
 
   }
   toggleStarred = (selectedMessage) => {
-    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a, b) => a.id - b.id)
-    console.log('otherMessages', otherMessages)
-    let changedMessage = {
-      id: selectedMessage.id,
-      subject: selectedMessage.subject,
-      read: selectedMessage.read,
-      starred: !selectedMessage.starred,
-      labels: selectedMessage.labels
-    }
+    selectedMessage.starred = !selectedMessage.starred
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a, b) => a.id - b.id)
+      messages: this.state.messages
     })
-    console.log("toggleStarred", this.toggleStarred)
-
   }
 
   toggleSelected = (selectedMessage) => {
-    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id).sort((a, b) => a.id - b.id)
-    console.log('otherMessages', otherMessages)
-    let changedMessage = {
-      id: selectedMessage.id,
-      subject: selectedMessage.subject,
-      read: selectedMessage.read,
-      selected: !selectedMessage.selected,
-      labels: selectedMessage.labels
-    }
+    selectedMessage.selected = !selectedMessage.selected
     this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a, b) => a.id - b.id)
+      messages: [...this.state.messages]
     })
-    console.log("App - state.messages", this.state.messages)
-
   }
 
   deleteMessage = () => {
     this.setState({
-      messages:this.state.messages.filter(message => {
+      messages: this.state.messages.filter(message => {
         return !message.selected
+      })
     })
-  })
   }
 
   render() {
@@ -193,6 +174,8 @@ class App extends Component {
             markAsUnReadFunc={this.markAsUnReadFunc}
             selectedIndicator={this.selectedIndicator}
             selectedIndicatorFunc={this.selectedIndicatorFunc}
+            numOfSelectedMessages={numOfSelectedMessages}
+            deleteMessage={this.deleteMessage}
 
           />
           {this.state.isLoading

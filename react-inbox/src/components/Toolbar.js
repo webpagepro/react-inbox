@@ -25,10 +25,18 @@ class Toolbar extends Component {
               unread messages
     </p>
 
+            <a class="btn btn-danger">
+              <i class="fa fa-plus"></i>
+            </a>
+            <button class="btn btn-default">
+              <i class="fa fa-square-o"></i>
+            </button>
+
             <button className="btn btn-default">
-              <i onClick={this.props.selectedIndicatorFunc}
-                // className={`fa fa${this.props.selectedIndicator}0 ? -square-o : -check-square-o`}
-                className={`fa fa${this.props.messages.length}-square-o`}
+              <i onClick={this.props.selectedIndicatorFunc.bind(this)}
+                className={`fa fa${this.props.selectedIndicator} ? -square-o : -check-square-o`}
+
+              // className={`fa fa${this.props.messages.length}-square-o`}
 
               ></i>
             </button>

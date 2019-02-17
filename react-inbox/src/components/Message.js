@@ -8,26 +8,30 @@ class Message extends Component {
 
   _onChangeHandler = e => {
     const { name, value } = e.target
-    console.log("onChangeHandler ", name, value)
+    console.log("onChangeHandler ", value)
     this.setState({
       checked: true
     })
   }
   _onClick = (e)=> {
     e.preventDefault()
-  //  this.props.selectedIndicatorFun(this.state.message)
-   // console.log("checked  ", this.props.selectedIndicatorFun(this.state.message.id))
+   this.props.selectedIndicatorFunc(this.state.message)
+   console.log("checked  ", this.props.selectedIndicatorFun(this.state.message.id))
  
 }
-//  alert('onclickddww')
-// console.log("_onClick ", e.target.value)
+ //alert('onclickddww')
+//console.log("_onClick ", e.target.value)
 //<i className={`star fa fa-star${this.props.message.starred ? '' : '-o'}`}
 
 //      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} `} 
+
+messageLabel = this.props.message.label
+
 render() {
-  
+  console.log("messageLabels ", this.messageLabel)
   let emailBody = this.props.message.body
   let emailSubject = this.props.message.subject
+  
 
   return (
     <div>
@@ -43,7 +47,7 @@ render() {
               />
             </div>
             <div className="col-xs-2">
-              <i className={`star fa fa-star${this.props.message.starred ? '': '-o'} `} 
+              <i className={`star fa fa-star${this.props.message.starred ? '' : '-o'} `} 
               onClick={ () => this.props.toggleStarred(this.props.message)} 
               ></i>
             </div>
