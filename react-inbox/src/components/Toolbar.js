@@ -26,7 +26,10 @@ class Toolbar extends Component {
     </p>
 <button class="btn btn-default">
            
-            <i class="fa fa-minus-square-o"></i>
+            <i class="fa fa-minus-square-o"
+             onClick={() => this.props.markAsReadFunc}
+             className={`${this.props.messages.selected ? 'btn-primary' : ''}`} >
+            ></i>
           
             </button>
 

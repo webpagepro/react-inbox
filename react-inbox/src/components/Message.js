@@ -25,14 +25,18 @@ class Message extends Component {
 
 //      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} `} 
 
-messageLabel = this.props.message.label
+
 
 render() {
   console.log("messageLabels ", this.messageLabel)
   let emailBody = this.props.message.body
   let emailSubject = this.props.message.subject
   
-
+let messageLabel = this.props.message.labels.map(label => {
+  return(
+    <span key={label.id} className="label label-warning">{label}</span>
+  )
+}) 
   return (
     <div>
       <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.selected ? 'selected' : ''}`}>
@@ -55,10 +59,7 @@ render() {
         </div>
 
         <div class="col-xs-11">
-    <span class="label label-warning">dev</span>
-    <span class="label label-warning">gschool</span>
-    <a href="#">
-     </a>
+    {messageLabel}
   </div>
 
         <div
