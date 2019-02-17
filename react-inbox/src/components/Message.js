@@ -42,13 +42,14 @@ render() {
               <input
                 onClick={(e) => this.props.toggleSelected(this.props.message)} 
                 type="checkbox"
-                checked={this.props.message.selected} 
+                checked={this.props.message.checked} 
                 onChange={this._onChangeHandler}
               />
             </div>
             <div className="col-xs-2">
               <i className={`star fa fa-star${this.props.message.starred ? '' : '-o'} `} 
               onClick={ () => this.props.toggleStarred(this.props.message)} 
+              onChange={this._onChangeHandler}
               ></i>
             </div>
           </div>

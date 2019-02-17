@@ -136,7 +136,7 @@ class App extends Component {
   toggleStarred = (selectedMessage) => {
     selectedMessage.starred = !selectedMessage.starred
     this.setState({
-      messages: this.state.messages
+      messages: [...this.state.messages]
     })
   }
 
