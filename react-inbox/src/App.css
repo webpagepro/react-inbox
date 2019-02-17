@@ -72,4 +72,16 @@
   .fa-close {
     cursor: pointer;
   }
+
+  .navbar-brand{
+      color:#fff;
+  }
+
+  .navbar-brand:hover{
+    color:#ccc;
+  }
+
+  .navbar-brand:after{
+      color:red;
+  }
   

@@ -56,7 +56,7 @@ render() {
         </div>
         <div
         onClick={ () => this.props.toggleRead(this.props.message)}  
-        className={`row message ${this.props.message.read ? '' : 'unread'} `} 
+        className={`row message ${this.props.message.read ? '' : 'unread'} ${this.props.message.checked ? 'selected' : ''}`} 
         >
           <a href="#">
 
