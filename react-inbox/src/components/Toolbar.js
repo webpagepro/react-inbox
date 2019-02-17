@@ -24,12 +24,10 @@ class Toolbar extends Component {
               <span className="badge badge">{this.props.numOfUnreadMessages}</span>
               unread messages
     </p>
-
-            <a class="btn btn-danger">
-              <i class="fa fa-plus"></i>
-            </a>
-            <button class="btn btn-default">
-              <i class="fa fa-square-o"></i>
+<button class="btn btn-default">
+           
+            <i class="fa fa-minus-square-o"></i>
+          
             </button>
 
             <button className="btn btn-default">

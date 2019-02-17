@@ -35,14 +35,14 @@ render() {
 
   return (
     <div>
-      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.checked ? 'selected' : ''}`}>
+      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.selected ? 'selected' : ''}`}>
         <div className="col-xs-1 ">
           <div className="row">
             <div className="col-xs-2">
               <input
                 onClick={(e) => this.props.toggleSelected(this.props.message)} 
                 type="checkbox"
-                checked={this.props.message.checked} 
+                checked={this.props.message.selected} 
               />
             </div>
             <div className="col-xs-2">
@@ -53,6 +53,14 @@ render() {
             </div>
           </div>
         </div>
+
+        <div class="col-xs-11">
+    <span class="label label-warning">dev</span>
+    <span class="label label-warning">gschool</span>
+    <a href="#">
+     </a>
+  </div>
+
         <div
         onClick={ () => this.props.toggleRead(this.props.message)}  
         className={`row message ${this.props.message.read ? '' : 'unread'}`} 

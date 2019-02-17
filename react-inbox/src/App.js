@@ -146,7 +146,7 @@ class App extends Component {
   }
 
   toggleSelected = (selectedMessage) => {
-    selectedMessage.checked = !selectedMessage.checked
+    selectedMessage.selected = !selectedMessage.selected
     this.setState({
 messages: [...this.state.messages]    })
   }
