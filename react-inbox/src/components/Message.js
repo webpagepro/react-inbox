@@ -35,7 +35,7 @@ render() {
 
   return (
     <div>
-      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.selected ? 'selected' : ''}`}>
+      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.checked ? 'selected' : ''}`}>
         <div className="col-xs-1 ">
           <div className="row">
             <div className="col-xs-2">
@@ -43,7 +43,6 @@ render() {
                 onClick={(e) => this.props.toggleSelected(this.props.message)} 
                 type="checkbox"
                 checked={this.props.message.checked} 
-                onChange={this._onChangeHandler}
               />
             </div>
             <div className="col-xs-2">
@@ -56,7 +55,7 @@ render() {
         </div>
         <div
         onClick={ () => this.props.toggleRead(this.props.message)}  
-        className={`row message ${this.props.message.read ? '' : 'unread'} ${this.props.message.checked ? 'selected' : ''}`} 
+        className={`row message ${this.props.message.read ? '' : 'unread'}`} 
         >
           <a href="#">
 
