@@ -3,7 +3,7 @@
     padding-top: 8px;
     padding-bottom: 8px;
     cursor: pointer;
-    border-bottom: 1px solid #efefef;
+    border-bottom: 0px solid #efefef;
   }
   
   .message a {
@@ -31,8 +31,8 @@
   }
   
   .message:hover {
-    margin-left: -3px;
-    border-left: 3px solid #ccc;
+    margin-left: 0px;
+    border-left: 0px solid #ccc;
   }
   
   .message-body {
@@ -84,4 +84,11 @@
   .navbar-brand:after{
       color:red;
   }
+  a {
+    padding-left:20px;
+
+  }
   
+  .message.unread{
+    border:0;
+  }

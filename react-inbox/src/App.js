@@ -81,18 +81,23 @@ class App extends Component {
     }).length
 
     if (amountSelected === this.state.messages.length) {
-      this.setState({
-        message: this.state.messages.map(message => {
+      this.setState(prevState => {
+       return {
+
+        messages: prevState.messages.map(message => {
           message.selected = false
           return message
-        })
+      })
+     } 
       })
     } else {
-      this.setState({
-        message: this.state.message.map(message => {
+      this.setState(prevState => {
+        return {
+          messages: prevState.messages.map(message => {
           message.selected = true
-          return message
-        })
+         return message
+        
+      })}
       })
     }
   }  /* selectedIndicator={this.selectedIndicator}

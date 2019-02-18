@@ -34,7 +34,7 @@ render() {
   
 let messageLabel = this.props.message.labels.map(label => {
   return(
-    <span key={label.id} className="label label-warning">{label}</span>
+    <div key={label.id} className="label label-warning">{`${label ? '' : 'nolabel'}`}</div>
   )
 }) 
   return (
@@ -59,7 +59,7 @@ let messageLabel = this.props.message.labels.map(label => {
         </div>
 
         <div class="col-xs-11">
-    {messageLabel}
+   {messageLabel}
   </div>
 
         <div

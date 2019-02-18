@@ -24,24 +24,12 @@ class Toolbar extends Component {
               <span className="badge badge">{this.props.numOfUnreadMessages}</span>
               unread messages
     </p>
-<button class="btn btn-default">
-           
-            <i class="fa fa-minus-square-o"
-             onClick={() => this.props.markAsReadFunc}
-             className={`${this.props.messages.selected ? 'btn-primary' : ''}`} >
-            ></i>
-          
-            </button>
-
-            <button className="btn btn-default">
-              <i onClick={this.props.selectedIndicatorFunc.bind(this)}
-                className={`fa fa${this.props.selectedIndicator} ? -square-o : -check-square-o`}
-
-              // className={`fa fa${this.props.messages.length}-square-o`}
-
+            <button class="btn btn-default">
+              <i onClick={() => this.props.selectedIndicatorFunc()}
+                className={`fa fa${this.props.selectedIndicator()}-square-o`}
               ></i>
             </button>
-
+            
             <button onClick={() => this.props.markAsReadFunc}
               className={`${this.props.messages.selected ? 'btn-primary' : ''}`}
             >
