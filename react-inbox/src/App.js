@@ -21,13 +21,15 @@ class App extends Component {
         throw new Error('Bad request to API')
       }
       const messages = await res.json()
-      // setTimeout(() => {
+      /// setTimeout(() => {
 
       this.setState({
         messages: messages.sort((a, b) => a.id - b.id),
         isLoading: false
       })
-      // }, 2000)
+      /// }, 2000)
+
+
       console.log("otherMessages", messages)
 
     }
@@ -41,9 +43,12 @@ class App extends Component {
 
   userSelectedMessage = (message) => {
     this.props.message.selected = !message.selected
-    this.setState(this.state.messages.concat(message))
+    this.setState(prevState => {
+      prevState.messages.concat(message)
+    }
+    )
   }
-  /* 
+  /*
    addMessage = (data) => {
      fetch('http://localhost:8000/messages/add')
      method: POST,
@@ -55,10 +60,10 @@ class App extends Component {
    .then(response => this.setState(({ messages }) =>
    response.checked = false;
    return {messages: [...message, response]}
-  
- */
 
-  selectedIndicator = () => {
+ */
+  //actual number of user selected messages
+  selectedMessages = () => {
     let amountSelected = this.state.messages.filter(message => {
       return message.selected
     }).length
@@ -75,29 +80,33 @@ class App extends Component {
     return action;
   }
 
-  selectedIndicatorFunc = () => {
+  //amountSelected is the number of messages selected
+  selectedMessagesFunc = () => {
+    //amountSelected is the number of messages selected
     let amountSelected = this.state.messages.filter(message => {
       return message.selected
     }).length
 
+    //if the amountSelected is equal to the current state of the number of messages selected
     if (amountSelected === this.state.messages.length) {
       this.setState(prevState => {
-       return {
-
-        messages: prevState.messages.map(message => {
-          message.selected = false
-          return message
+        return {
+          //set all messages selected to false
+          messages: prevState.messages.map(message => {
+            message.selected = false
+            return message
+          })
+        }
       })
-     } 
-      })
-    } else {
+    } else {//else messages selected to true
       this.setState(prevState => {
         return {
           messages: prevState.messages.map(message => {
-          message.selected = true
-         return message
-        
-      })}
+            message.selected = true
+            return message
+
+          })
+        }
       })
     }
   }  /* selectedIndicator={this.selectedIndicator}
@@ -106,19 +115,26 @@ class App extends Component {
             markAsReadFunc={this.markAsReadFunc}
  */
   markAsReadFunc = () => {
-    let selectedMessages = this.state.filter(message => message.selected);
-    this.setState(this.state.messages.concat(selectedMessages.map(message => {
-      message.read = true
-      return message
-    })))
+    let selectedMessages = this.state.messages.filter(message => message.selected)
+    this.setState(prevState => {
+      prevState.messages.concat(selectedMessages.map(message => {
+        message.read = true
+        return message
+
+      })
+      )
+    })
   }
 
   markAsUnReadFunc = () => {
     let selectedMessages = this.state.filter(message => message.selected)
-    this.setState(this.state.messages.concat(selectedMessages.map(message => {
-      message.read = false
-      return message
-    })))
+    this.setState(prevState => {
+      prevState.messages.concat(selectedMessages.map(message => {
+        message.read = false
+        return message
+      })
+      )
+    })
   }
 
 
@@ -153,7 +169,8 @@ class App extends Component {
   toggleSelected = (selectedMessage) => {
     selectedMessage.selected = !selectedMessage.selected
     this.setState({
-messages: [...this.state.messages]    })
+      messages: [...this.state.messages],
+    })
   }
 
   deleteMessage = () => {
@@ -177,14 +194,17 @@ messages: [...this.state.messages]    })
         <Container>
           <TopNavBar />
           <Header className="App-header" />
-          <Toolbar messages={this.state.messages.sort()}
+          <Toolbar messages={this.state.messages}
             numOfUnreadMessages={numOfUnreadMessages}
             markAsReadFunc={this.markAsReadFunc}
             markAsUnReadFunc={this.markAsUnReadFunc}
-            selectedIndicator={this.selectedIndicator}
-            selectedIndicatorFunc={this.selectedIndicatorFunc}
+            selectedMessages={this.selectedMessages}
+            selectedMessagesFunc={this.selectedMessagesFunc}
             numOfSelectedMessages={numOfSelectedMessages}
+            applyLabelAction={this.applyLabelAction}
+            removeLabelAction={this.removeLabelAction}
             deleteMessage={this.deleteMessage}
+            userSelectedMessage={this.userSelectedMessage}
 
           />
           {this.state.isLoading

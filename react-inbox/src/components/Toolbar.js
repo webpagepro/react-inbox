@@ -4,13 +4,41 @@ class Toolbar extends Component {
 
   //          className={`fa fa${ this.props.selectedIndicator() }-square-o`}
   state = {
-    disable: false
+    checked: false,
+    disabled: true
   }
+
+  _onClickReadHandle = (e) => {
+    e.preventDefault();
+    this.props.markAsReadFunc();
+  }
+
+  _onClickUnReadHandle = (e) => {
+    e.preventDefault();
+    this.props.markAsUnReadFunc();
+  }
+
+  _onChangeHandler = (e) => {
+    const { name, value } = e.target
+    this.setState({
+      [name]: value
+    })
+  }
+
+  _onChangeDisabledHandler = (e) => {
+    const { name, value } = e.target
+    this.setState({
+      checked: true,
+      disabled: false
+    })
+  }
+
+
+  allSelected = this.props.numOfSelectedMessages
+
   render() {
-
+console.log("TOOLBAR ", this.allSelected)
     let someSelected = this.props.numOfSelectedMessages > 0 && this.props.numOfSelectedMessages < this.props.messages.length ? '-minus' : null;
-
-    let allSelected = this.props.numOfSelectedMessages == this.props.messages.length ? '-check' : null;
 
     let noneSelected = this.props.numOfSelectedMessages === 0 ? '' : null;
 
@@ -20,28 +48,41 @@ class Toolbar extends Component {
       <div>
         <div className="row toolbar">
           <div className="col-md-12">
+            <a href="#" className="btn btn-danger">
+              <i className="fa fa-plus"></i>
+            </a>
             <p className="pull-right">
               <span className="badge badge">{this.props.numOfUnreadMessages}</span>
               unread messages
     </p>
-            <button class="btn btn-default">
-              <i onClick={() => this.props.selectedIndicatorFunc()}
-                className={`fa fa${this.props.selectedIndicator()}-square-o`}
+            <button className="btn btn-default"
+              onClick={() => this.props.selectedMessagesFunc()}
+            >
+              <i
+                className={`fa fa${this.props.selectedMessages()}-square-o`}
               ></i>
             </button>
-            
-            <button onClick={() => this.props.markAsReadFunc}
-              className={`${this.props.messages.selected ? 'btn-primary' : ''}`}
+
+            <button onClick={this._onClickReadHandle}
+              name='markRead'
+              disabled={this.props.numOfSelectedMessages.length > 0 ? '' : 'disabled'}
+              className={this.props.numOfSelectedMessages.length > 0 ? 'btn-primary' : 'btn-default'}
             >
               Mark As Read
     </button>
 
-            <button onClick={() => this.props.markAsUnReadFunc}
-              className={`${this.props.messages.selected ? 'btn-primary' : ''}`} >
+    <button onClick={this._onClickUnReadHandle}
+              name='markRead'
+              disabled={this.props.numOfSelectedMessages.length > 0 ? '' : 'disabled'}
+              className={this.props.numOfSelectedMessages.length > 0 ? 'btn-danger' : 'btn-default'}
+            >
               Mark As Unread
     </button>
 
-            <select className="form-control label-select">
+            <select className="form-control label-select"
+              onChange={this._onChangeHandler}
+              name="selected"
+              value="this.state.selected">
               <option>Apply label</option>
               <option value="dev">dev</option>
               <option value="personal">personal</option>

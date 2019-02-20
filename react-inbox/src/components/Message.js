@@ -16,7 +16,7 @@ class Message extends Component {
   _onClick = (e)=> {
     e.preventDefault()
    this.props.selectedIndicatorFunc(this.state.message)
-   console.log("checked  ", this.props.selectedIndicatorFun(this.state.message.id))
+  // console.log("checked  ", this.props.selectedIndicatorFun(this.state.message.id))
  
 }
  //alert('onclickddww')
@@ -28,18 +28,18 @@ class Message extends Component {
 
 
 render() {
-  console.log("messageLabels ", this.messageLabel)
+  //console.log("messageLabels ", this.messageLabel)
   let emailBody = this.props.message.body
   let emailSubject = this.props.message.subject
   
 let messageLabel = this.props.message.labels.map(label => {
   return(
-    <div key={label.id} className="label label-warning">{`${label ? '' : 'nolabel'}`}</div>
+    <div key={label.id} className="label label-warning">{label}</div>
   )
 }) 
   return (
     <div>
-      <div className={`row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.selected ? 'selected' : ''}`}>
+      <div className={`key={this.props.message.id} row message ${this.props.message.read ? 'read' : 'unread'} ${this.props.message.selected ? 'selected' : ''}`}>
         <div className="col-xs-1 ">
           <div className="row">
             <div className="col-xs-2">
@@ -47,6 +47,7 @@ let messageLabel = this.props.message.labels.map(label => {
                 onClick={(e) => this.props.toggleSelected(this.props.message)} 
                 type="checkbox"
                 checked={this.props.message.selected} 
+                onChange={this._onChangeHandler}
               />
             </div>
             <div className="col-xs-2">

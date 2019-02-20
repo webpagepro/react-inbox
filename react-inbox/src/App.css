@@ -92,3 +92,54 @@
   .message.unread{
     border:0;
   }
+
+  .pull-right {
+    margin-right:100px;
+  }
+
+/*
+ .row.message.read a{
+    border: 0;
+    margin-left: 35px;
+    text-align:left;
+}
+.row.message.unread a
+{
+  border: 0;
+  margin-left: 0px;
+  text-align:left;
+}
+
+.label a{ 
+  z-index:999;
+}
+
+.row{
+  padding-left:27px;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  left: -50px;
+}
+
+.fa {
+  left: -45px;
+  position: relative;
+}
+
+.fa-square-o:before {
+  position:relative;
+  left:38px;
+}
+.fa-check-square-o:before{
+  left:38px;
+  position:relative;
+
+}
+.btn .fa-trash-o{
+  position:relative;
+  right:143px;
+}
+
+*/
