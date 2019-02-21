@@ -10,7 +10,7 @@ class Message extends Component {
     const { name, value } = e.target
     console.log("onChangeHandler ", value)
     this.setState({
-      checked: true
+      checked: "selected"
     })
   }
   _onClick = (e)=> {
@@ -59,7 +59,7 @@ let messageLabel = this.props.message.labels.map(label => {
           </div>
         </div>
 
-        <div class="col-xs-11">
+        <div className="col-xs-11">
    {messageLabel}
   </div>
 

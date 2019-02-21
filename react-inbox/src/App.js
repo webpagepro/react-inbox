@@ -48,6 +48,7 @@ class App extends Component {
     }
     )
   }
+
   /*
    addMessage = (data) => {
      fetch('http://localhost:8000/messages/add')
@@ -127,7 +128,7 @@ class App extends Component {
   }
 
   markAsUnReadFunc = () => {
-    let selectedMessages = this.state.filter(message => message.selected)
+    let selectedMessages = this.state.messages.filter(message => message.selected)
     this.setState(prevState => {
       prevState.messages.concat(selectedMessages.map(message => {
         message.read = false
@@ -137,26 +138,13 @@ class App extends Component {
     })
   }
 
-
   toggleRead = (selectedMessage) => {
     selectedMessage.read = !selectedMessage.read
     this.setState({
       messages: [...this.state.messages]
     })
-    /*
-    let otherMessages = this.state.messages.filter(message => selectedMessage.id != message.id)
-    console.log('otherMessages', otherMessages)
-    let changedMessage = {
-      id: selectedMessage.id,
-      subject: selectedMessage.subject,
-      read: !selectedMessage.read,
-      starred: selectedMessage.starred,
-      labels: selectedMessage.labels
-    }
-    this.setState({
-      messages: otherMessages.concat(changedMessage).sort((a, b) => a.id - b.id)//[...otherMessages, this.changedMessages]
-    })
-    */console.log("otherMessages", this.otherMessages)
+  
+    console.log("otherMessages", this.otherMessages)
 
   }
   toggleStarred = (selectedMessage) => {
@@ -180,6 +168,60 @@ class App extends Component {
       })
     })
   }
+
+
+  disabledApplyLabelDropDown = () => {
+    let selectedMessages = this.state.messages.filter( message => message.selected ).length
+    return selectedMessages === 0 ? 'disabled' : ''
+  }
+
+  disabledRemoveLabelDropDown = () => {
+    let selectedMessages = this.state.messages.filter( message => message.selected ).length
+    return selectedMessages === 0 ? 'disabled' : ''    
+  }
+
+  applyLabelAction = (label) => {
+    if (label === 'Apply label') return
+    let selectedMessages = this.state.messages.filter( message => message.selected )
+
+    this.setState( this.state.messages.concat( selectedMessages.map( message => {
+      if ( message.labels.includes( label ) ) return message
+      message.labels.push(label)
+      return message
+    } ) ) )
+  }
+
+  removeLabelAction = (label) => {
+    if (label === 'Remove label') return
+    let selectedMessages = this.state.messages.filter( message => message.selected )
+
+    this.setState( prevState => {
+      prevState.messages.concat( selectedMessages.map( message => {
+      message.labels.splice(label, 1)
+      return message
+      } ) ) })
+  }
+
+  disabledDeleteMessageButton = () => {
+    let selectedMessages = this.state.messages.filter( message => message.selected )
+    let readStatusArray = selectedMessages.map( message => {
+      return message.selected ? true : false
+    } )
+    return readStatusArray.includes( false ) || readStatusArray.length === 0  ? 'disabled' : ''        
+  }  
+
+
+  deleteMessage = () => {
+    this.setState({
+      messages: this.state.messages.filter( message => {
+        return !message.selected
+      } ).map( message => {
+        message.selected = false
+        return message
+      } )
+    })
+  }
+
 
   render() {
     let numOfSelectedMessages = this.state.messages.filter(msg => msg.selected)
@@ -205,7 +247,9 @@ class App extends Component {
             removeLabelAction={this.removeLabelAction}
             deleteMessage={this.deleteMessage}
             userSelectedMessage={this.userSelectedMessage}
-
+            disabledApplyLabelDropDown={this.disabledApplyLabelDropDown}
+            disabledRemoveLabelDropDown={this.disabledRemoveLabelDropDown}
+            disabledDeleteMessageButton={this.disabledDeleteMessageButton}
           />
           {this.state.isLoading
             ? <div className="isLoading">Your email inbox is loading... </div>
@@ -213,7 +257,6 @@ class App extends Component {
               toggleRead={this.toggleRead}
               toggleStarred={this.toggleStarred}
               toggleSelected={this.toggleSelected}
-
             />}
           <Footer />
 

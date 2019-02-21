@@ -37,7 +37,7 @@ class Toolbar extends Component {
   allSelected = this.props.numOfSelectedMessages
 
   render() {
-console.log("TOOLBAR ", this.allSelected)
+    console.log("TOOLBAR ", this.allSelected)
     let someSelected = this.props.numOfSelectedMessages > 0 && this.props.numOfSelectedMessages < this.props.messages.length ? '-minus' : null;
 
     let noneSelected = this.props.numOfSelectedMessages === 0 ? '' : null;
@@ -71,16 +71,18 @@ console.log("TOOLBAR ", this.allSelected)
               Mark As Read
     </button>
 
-    <button onClick={this._onClickUnReadHandle}
+            <button onClick={this._onClickUnReadHandle}
               name='markRead'
               disabled={this.props.numOfSelectedMessages.length > 0 ? '' : 'disabled'}
-              className={this.props.numOfSelectedMessages.length > 0 ? 'btn-danger' : 'btn-default'}
+              className={this.props.numOfSelectedMessages.length > 0 ? 'btn-warning' : 'btn-default'}
             >
               Mark As Unread
     </button>
 
             <select className="form-control label-select"
-              onChange={this._onChangeHandler}
+              //onChange={this._onChangeHandler}
+              disabled={`${ this.props.disabledApplyLabelDropDown() }`}
+                    onChange={ () => this.props.applyLabelAction( document.querySelectorAll('select')[0].value ) }
               name="selected"
               value="this.state.selected">
               <option>Apply label</option>
@@ -89,16 +91,25 @@ console.log("TOOLBAR ", this.allSelected)
               <option value="gschool">gschool</option>
             </select>
 
-            <select className="form-control label-select">
+            <select className="form-control label-select"
+              disabled={`${this.props.disabledRemoveLabelDropDown()}`}
+              onChange={() => this.props.removeLabelAction(document.querySelectorAll('select')[1].value)}
+              >
               <option>Remove label</option>
               <option value="dev">dev</option>
               <option value="personal">personal</option>
               <option value="gschool">gschool</option>
             </select>
 
-            <button className="btn btn-default">
-              <i className="fa fa-trash-o"></i>
-            </button>
+            <button
+                    className="btn btn-default"
+                    disabled={`${ this.props.disabledDeleteMessageButton() }`}
+                >
+                <i
+                    className="fa fa-trash-o"
+                    onClick={ () => this.props.deleteMessage() }
+                ></i>
+                </button>
           </div>
         </div>
       </div>
