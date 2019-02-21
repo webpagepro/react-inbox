@@ -49,20 +49,6 @@ class App extends Component {
     )
   }
   
-  /*
-   addMessage = (data) => {
-     fetch('http://localhost:8000/messages/add')
-     method: POST,
-     body: JSON.stringify(data),
-     headers: {
-       'Content-Type' : 'application/json'
-     }
-   }).then(res => res.json())
-   .then(response => this.setState(({ messages }) =>
-   response.checked = false;
-   return {messages: [...message, response]}
-
- */
   //actual number of user selected messages
   selectedMessages = () => {
     let amountSelected = this.state.messages.filter(message => {
@@ -110,11 +96,8 @@ class App extends Component {
         }
       })
     }
-  }  /* selectedIndicator={this.selectedIndicator}
-           // selectedIndicatorFunc={this.selectedIndicatorFunc}
-            markAsUnReadFunc={this.markAsUnReadFunc}
-            markAsReadFunc={this.markAsReadFunc}
- */
+  }  
+  
   markAsReadFunc = () => {
     let selectedMessages = this.state.messages.filter(message => message.selected)
     this.setState(prevState => {
