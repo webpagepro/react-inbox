@@ -84,7 +84,8 @@ class Toolbar extends Component {
               disabled={`${ this.props.disabledApplyLabelDropDown() }`}
                     onChange={ () => this.props.applyLabelAction( document.querySelectorAll('select')[0].value ) }
               name="selected"
-              value="this.state.selected">
+              value="this.state.selected"
+              >
               <option>Apply label</option>
               <option value="dev">dev</option>
               <option value="personal">personal</option>

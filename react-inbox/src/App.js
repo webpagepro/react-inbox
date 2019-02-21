@@ -48,7 +48,7 @@ class App extends Component {
     }
     )
   }
-
+  
   /*
    addMessage = (data) => {
      fetch('http://localhost:8000/messages/add')
@@ -199,7 +199,8 @@ class App extends Component {
       prevState.messages.concat( selectedMessages.map( message => {
       message.labels.splice(label, 1)
       return message
-      } ) ) })
+      }))
+    })
   }
 
   disabledDeleteMessageButton = () => {
