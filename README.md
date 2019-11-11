@@ -8,7 +8,7 @@ Component Hierarchy
     A Message component
     A Toolbar component
 
-Stories:
+<b>Stories<b>
 
 Message Display:
 Users can see a list of messages with the correct styles
@@ -29,7 +29,7 @@ It toggles whether the message is starred or not
 For example if it was starred, and you clicked on it, it will become unstarred
 
 
-Selecting Individual Messages:
+Selecting Individual Messages
 Users should are able to select and deselect individual messages.
 
 When a user checks the checkbox on a message
@@ -39,7 +39,7 @@ When a user unchecks the checkbox on a message
 Then the message is not highlighted
 
 
-Bulk Select / Deselect:
+<b>Bulk Select / Deselect</b>
 Users is able to select and deselect messages.
 
 Given that no messages are selected
@@ -70,7 +70,7 @@ And presses "Mark As Unread"
 Then each selected message will be marked as unread
 And will appear bold
 
-Deleting Messages
+<b>Deleting Messages</b>
 Users is able to delete selected messages
 
 When a user selects messages
@@ -79,7 +79,7 @@ Then each selected message is removed from the list
 And the unread count is updated
 And "Select All" button will update
 
-Adding Labels
+<b>Adding Labels</b>
 When a user selects messages from the sidebar
 And chooses a label from the "Add Label" dropdown
 Then that label will be added to all selected messages
@@ -114,7 +114,7 @@ Then the "Select All" button is in the "checked" state
 
 NOTE: the "Select All" button must stay in sync at all times.
 
-Select All Button State
+<b>Select All Button State</b>
 Users is not be able to click on toolbar items when no messages are selected
 Load the messages from the server
 
