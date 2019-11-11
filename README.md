@@ -22,7 +22,7 @@ If there are labels on a message, they will appear<br>
 If the message is starred, then the star is filled in, otherwise it is empty<br>
 
 <b>Starring</b><br>
-Users are able to star and unstar a message.<br><br>
+Users are able to star and unstar a message.
 
 When a user clicks the star next to a message<br>
 It toggles whether the message is starred or not<br>
@@ -35,7 +35,7 @@ Users should are able to select and deselect individual messages.
 When a user checks the checkbox on a message<br>
 Thee message will be highlighted
 
-When a user unchecks the checkbox on a message
+When a user unchecks the checkbox on a message<br>
 Then the message is not highlighted
 
 
