@@ -29,7 +29,7 @@ It toggles whether the message is starred or not
 For example if it was starred, and you clicked on it, it will become unstarred
 
 
-<b>Selecting Individual Message<b><br>
+<b>Selecting Individual Message</b><br>
 Users should are able to select and deselect individual messages.
 
 When a user checks the checkbox on a message
@@ -79,37 +79,37 @@ Then each selected message is removed from the list
 And the unread count is updated
 And "Select All" button will update
 
-<b>Adding Labels</b>
+<b>Adding Labels</b><br>
 When a user selects messages from the sidebar
 And chooses a label from the "Add Label" dropdown
 Then that label will be added to all selected messages
 But if the message already contains the label then it will not be added twice
 
-<b>When a user selects messages from the sidebar</b>
-And chooses a label from the "Remove Label" dropdown
-Then that label will be removed from all of the selected messages that contain the label
+<b>When a user selects messages from the sidebar</b><br>
+And chooses a label from the "Remove Label" dropdown<br>
+Then that label will be removed from all of the selected messages that contain the label<br>
 
 NOTE: If you try to remove a label from a message that doesn't have that label, there will be no errors
 
-<b>Unread Message Count</b><br></b>
-Users can always see the number of unread messages
+<b>Unread Message Count</b><br>
+Users can always see the number of unread messages<br>
 
-When a user changes which messages are read / unread
-Then the unread count in the upper right-hand corner is updated
-And when there are 0 unread messages it displays "0 unread messages"
-And when there is 1 unread message it displays "1 unread message"
-And when there's more than 1 unread message it displays "# unread messages"
+When a user changes which messages are read / unread<br>
+Then the unread count in the upper right-hand corner is updated<br>
+And when there are 0 unread messages it displays "0 unread messages"<br>
+And when there is 1 unread message it displays "1 unread message"<br>
+And when there's more than 1 unread message it displays "# unread messages"<br>
 
 <b>Select All Button State</b><br> 
 Users should see the state of the select all button change as messages are selected
 
-When no messages are checked
+When no messages are checked<br>
 Then the "Select All" button is in the "unchecked" state
 
-When some messages are checked
+When some messages are checked<br>
 Then the "Select All" button is in the "half-checked" state
 
-When all messages are checked
+When all messages are checked<br>
 Then the "Select All" button is in the "checked" state
 
 
