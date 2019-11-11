@@ -8,7 +8,7 @@ Component Hierarchy
     A Message component
     A Toolbar component
 
-<b>Stories<b>
+<b>Stories</b>
 
 Message Display:
 Users can see a list of messages with the correct styles
