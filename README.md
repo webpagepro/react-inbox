@@ -8,7 +8,7 @@ Component Hierarchy
     A Message component
     A Toolbar component
 
-<b>Stories</b><br><br>
+<b>Stories</b> 
 
 <b>Message Display</b><br>
 Users can see a list of messages with the correct styles
@@ -32,7 +32,7 @@ For example if it was starred, and you clicked on it, it will become unstarred
 <b>Selecting Individual Message</b><br>
 Users should are able to select and deselect individual messages.
 
-When a user checks the checkbox on a message
+When a user checks the checkbox on a message<br>
 Thee message will be highlighted
 
 When a user unchecks the checkbox on a message
@@ -42,22 +42,22 @@ Then the message is not highlighted
 <b>Bulk Select / Deselect</b><br>
 Users is able to select and deselect messages.
 
-Given that no messages are selected
-When a user checks the "Select All" checkbox
-Then it checks all messages (and highlight them)
-
-Givenstar that some messages are selected<br>
+Given that no messages are selected<br>
 When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
 
-Given that all messages are selected
-When a user unchecks the "Select All" checkbox
+Given star that some messages are selected<br>
+When a user checks the "Select All" checkbox<br>
+Then it checks all messages (and highlight them)
+
+Given that all messages are selected<br>
+When a user unchecks the "Select All" checkbox<br>
 Then it unchecks all messages (and unhighlights them)
 
 <b>Marking Messages as Read</b><br>
 Users are able to mark messages as read.
 
-When a user selects messages
+When a user selects messages<br>
 And presses "Mark As Read"<br>
 Then each selected message will be marked as read<br>
 And will no longer be bold
@@ -92,7 +92,7 @@ Then that label will be removed from all of the selected messages that contain t
 NOTE: If you try to remove a label from a message that doesn't have that label, there will be no errors
 
 <b>Unread Message Count</b><br>
-Users can always see the number of unread messages<br>
+Users can always see the number of unread messages 
 
 When a user changes which messages are read / unread<br>
 Then the unread count in the upper right-hand corner is updated<br>
