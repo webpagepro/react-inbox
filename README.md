@@ -1,5 +1,5 @@
 # react-inbox
-Google Style Email Client 
+<b>Google Style Email Client </b>
 
 Component Hierarchy
 
@@ -21,7 +21,7 @@ If the message is selected, it has the selected style and the box is checked
 If there are labels on a message, they will appear
 If the message is starred, then the star is filled in, otherwise it is empty
 
-Starring:
+<b>Starring:</b>
 Users are able to star and unstar a message.
 
 When a user clicks the star next to a message
@@ -46,7 +46,7 @@ Given that no messages are selected
 When a user checks the "Select All" checkbox
 Then it checks all messages (and highlight them)
 
-Given that some messages are selected
+Givenstar that some messages are selected
 When a user checks the "Select All" checkbox
 Then it checks all messages (and highlight them)
 
