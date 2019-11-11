@@ -29,7 +29,7 @@ It toggles whether the message is starred or not
 For example if it was starred, and you clicked on it, it will become unstarred
 
 
-Selecting Individual Messages
+<b>Selecting Individual Message</b>
 Users should are able to select and deselect individual messages.
 
 When a user checks the checkbox on a message
@@ -54,7 +54,7 @@ Given that all messages are selected
 When a user unchecks the "Select All" checkbox
 Then it unchecks all messages (and unhighlights them)
 
-Marking Messages as Read:
+<b>Marking Messages as Read</b>
 Users are able to mark messages as read.
 
 When a user selects messages
@@ -85,13 +85,13 @@ And chooses a label from the "Add Label" dropdown
 Then that label will be added to all selected messages
 But if the message already contains the label then it will not be added twice
 
-When a user selects messages from the sidebar
+<b>When a user selects messages from the sidebar</b>
 And chooses a label from the "Remove Label" dropdown
 Then that label will be removed from all of the selected messages that contain the label
 
 NOTE: If you try to remove a label from a message that doesn't have that label, there will be no errors
 
-Unread Message Count
+<b>Unread Message Count</b>
 Users can always see the number of unread messages
 
 When a user changes which messages are read / unread
@@ -100,7 +100,7 @@ And when there are 0 unread messages it displays "0 unread messages"
 And when there is 1 unread message it displays "1 unread message"
 And when there's more than 1 unread message it displays "# unread messages"
 
-Select All Button State
+<b>Select All Button State</b>
 Users should see the state of the select all button change as messages are selected
 
 When no messages are checked
