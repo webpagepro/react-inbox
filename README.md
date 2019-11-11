@@ -112,24 +112,4 @@ Then the "Select All" button is in the "half-checked" state
 When all messages are checked
 Then the "Select All" button is in the "checked" state
 
-NOTE: the "Select All" button must stay in sync at all times.
-
-<b>Select All Button State</b>
-Users is not be able to click on toolbar items when no messages are selected
-Load the messages from the server
-
-When a user goes to your inbox app
-The messages they see are the ones loaded from the server
-
-Actions should update the server-side
-
-When a user stars or unstars a message
-And then reloads the page
-They should see that the data has been persisted
-
-When a user marks messages read or unread
-Or deletes messages
-Or adds or removes labels
-And then refreshes the page
-Then they should see that the data has been persisted
 
