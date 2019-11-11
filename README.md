@@ -10,10 +10,10 @@ Component Hierarchy
 
 <b>Stories</b><br><br>
 
-<b>Message Display<b><br>
+<b>Message Display</b><br>
 Users can see a list of messages with the correct styles
 
-When a user views the app<b><br>
+When a user views the app</b><br>
 Then they can see a list of messages with their subjects
 If the message is read, it has the read style
 If the message is unread, it shows as unread
@@ -21,7 +21,7 @@ If the message is selected, it has the selected style and the box is checked
 If there are labels on a message, they will appear
 If the message is starred, then the star is filled in, otherwise it is empty
 
-<b>Starring<b><br>
+<b>Starring</b><br>
 Users are able to star and unstar a message.
 
 When a user clicks the star next to a message
@@ -39,7 +39,7 @@ When a user unchecks the checkbox on a message
 Then the message is not highlighted
 
 
-<b>Bulk Select / Deselect<b><br>
+<b>Bulk Select / Deselect</b><br>
 Users is able to select and deselect messages.
 
 Given that no messages are selected
@@ -54,7 +54,7 @@ Given that all messages are selected
 When a user unchecks the "Select All" checkbox
 Then it unchecks all messages (and unhighlights them)
 
-<b>Marking Messages as Read<b><br>
+<b>Marking Messages as Read</b><br>
 Users are able to mark messages as read.
 
 When a user selects messages
@@ -70,7 +70,7 @@ And presses "Mark As Unread"
 Then each selected message will be marked as unread
 And will appear bold
 
-<b>Deleting Messages<b><br>
+<b>Deleting Messages</b><br>
 Users is able to delete selected messages
 
 When a user selects messages
@@ -91,7 +91,7 @@ Then that label will be removed from all of the selected messages that contain t
 
 NOTE: If you try to remove a label from a message that doesn't have that label, there will be no errors
 
-<b>Unread Message Count<b><br></b>
+<b>Unread Message Count</b><br></b>
 Users can always see the number of unread messages
 
 When a user changes which messages are read / unread
@@ -100,7 +100,7 @@ And when there are 0 unread messages it displays "0 unread messages"
 And when there is 1 unread message it displays "1 unread message"
 And when there's more than 1 unread message it displays "# unread messages"
 
-<b>Select All Button State<b><br></b>
+<b>Select All Button State</b><br> 
 Users should see the state of the select all button change as messages are selected
 
 When no messages are checked
