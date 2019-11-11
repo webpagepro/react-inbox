@@ -14,18 +14,18 @@ Component Hierarchy
 Users can see a list of messages with the correct styles
 
 When a user views the app</b><br>
-Then they can see a list of messages with their subjects
-If the message is read, it has the read style
-If the message is unread, it shows as unread
-If the message is selected, it has the selected style and the box is checked
-If there are labels on a message, they will appear
-If the message is starred, then the star is filled in, otherwise it is empty
+Then they can see a list of messages with their subjects<br>
+If the message is read, it has the read style<br>
+If the message is unread, it shows as unread<br>
+If the message is selected, it has the selected style and the box is checked<br>
+If there are labels on a message, they will appear<br>
+If the message is starred, then the star is filled in, otherwise it is empty<br>
 
 <b>Starring</b><br>
-Users are able to star and unstar a message.
+Users are able to star and unstar a message.<br><br>
 
-When a user clicks the star next to a message
-It toggles whether the message is starred or not
+When a user clicks the star next to a message<br>
+It toggles whether the message is starred or not<br>
 For example if it was starred, and you clicked on it, it will become unstarred
 
 
@@ -46,8 +46,8 @@ Given that no messages are selected
 When a user checks the "Select All" checkbox
 Then it checks all messages (and highlight them)
 
-Givenstar that some messages are selected
-When a user checks the "Select All" checkbox
+Givenstar that some messages are selected<br>
+When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
 
 Given that all messages are selected
@@ -58,36 +58,36 @@ Then it unchecks all messages (and unhighlights them)
 Users are able to mark messages as read.
 
 When a user selects messages
-And presses "Mark As Read"
-Then each selected message will be marked as read
+And presses "Mark As Read"<br>
+Then each selected message will be marked as read<br>
 And will no longer be bold
 
-Marking Messages as Unread
+Marking Messages as Unread<br>
 Users are be able to mark messages as unread.
 
-When a user selects messages
-And presses "Mark As Unread"
-Then each selected message will be marked as unread
+When a user selects messages<br>
+And presses "Mark As Unread"<br>
+Then each selected message will be marked as unread<br>
 And will appear bold
 
-<b>Deleting Messages</b><br>
+<b>Deleting Messages</b><br><br>
 Users is able to delete selected messages
 
-When a user selects messages
-And presses "Delete" (the Trash icon)
+When a user selects messages<br>
+And presses "Delete" (the Trash icon)<br>
 Then each selected message is removed from the list
-And the unread count is updated
+And the unread count is updated<br>
 And "Select All" button will update
 
 <b>Adding Labels</b><br>
-When a user selects messages from the sidebar
-And chooses a label from the "Add Label" dropdown
-Then that label will be added to all selected messages
+When a user selects messages from the sidebar<br>
+And chooses a label from the "Add Label" dropdown<br>
+Then that label will be added to all selected messages<br>
 But if the message already contains the label then it will not be added twice
 
 <b>When a user selects messages from the sidebar</b><br>
 And chooses a label from the "Remove Label" dropdown<br>
-Then that label will be removed from all of the selected messages that contain the label<br>
+Then that label will be removed from all of the selected messages that contain the label
 
 NOTE: If you try to remove a label from a message that doesn't have that label, there will be no errors
 
