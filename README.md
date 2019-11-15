@@ -56,7 +56,7 @@ When a user selects message and presses "Mark As Read"
 Then each selected message will be marked as read<br>
 And will no longer be bold
 
-Marking Messages as Unread<br>
+<b>Marking Messages as Unread</b><br>
 Users are be able to mark messages as unread:
 
 When a user selects messages<br>
