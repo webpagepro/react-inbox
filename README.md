@@ -42,7 +42,7 @@ Given that no messages are selected<br>
 When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
 
-Given star that some messages are selected<br>
+Given that some messages are selected<br>
 When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
 
