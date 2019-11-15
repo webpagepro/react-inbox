@@ -65,7 +65,7 @@ Then each selected message will be marked as unread<br>
 And will appear bold
 
 <b>Deleting Messages</b><br>
-Users is able to delete selected messages:
+User is able to delete selected messages:
 
 When a user selects messages<br>
 And presses "Delete" (the Trash icon)<br> 
