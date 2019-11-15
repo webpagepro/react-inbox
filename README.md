@@ -37,7 +37,8 @@ Then the message is not highlighted
 
 
 <b>Bulk Select / Deselect</b><br>
-User is able to select and deselect messages.<br>
+User is able to select and deselect messages
+
 Given that no messages are selected<br>
 When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
