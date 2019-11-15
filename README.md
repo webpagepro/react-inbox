@@ -14,7 +14,7 @@ Component Hierarchy
 Users can see a list of messages with the correct styles
 
 <b>When a user views the app</b><br>
-Then they can see a list of messages with their subjects<br>
+They can see a list of messages with their subjects<br>
 If the message is read, it has the read style<br>
 If the message is unread, it shows as unread<br>
 If the message is selected, it has the selected style and the box is checked<br>
