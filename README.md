@@ -13,7 +13,7 @@ Component Hierarchy
 <b>Message Display</b><br>
 Users can see a list of messages with the correct styles
 
-<b>When a user views the app</b>
+<b>When a user views the app</b><br>
 Then they can see a list of messages with their subjects<br>
 If the message is read, it has the read style<br>
 If the message is unread, it shows as unread<br>
@@ -37,7 +37,7 @@ Then the message is not highlighted
 
 
 <b>Bulk Select / Deselect</b><br>
-Users is able to select and deselect messages.<br>
+User is able to select and deselect messages.<br>
 Given that no messages are selected<br>
 When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
