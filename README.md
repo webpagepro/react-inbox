@@ -10,7 +10,7 @@ Component Hierarchy
 
 <h2>USER STORIES</h2>
 
-<b>Message Display</b>
+<b>Message Display</b><br>
 Users can see a list of messages with the correct styles
 
 <b>When a user views the app</b>
