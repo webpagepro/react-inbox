@@ -52,7 +52,7 @@ Then it unchecks all messages (and unhighlights them)
 
 <b>Marking Messages as Read</b><br>
 Users are able to mark messages as read<br>
-When a user selects message and presses "Mark As Read" 
+When a user selects message and presses "Mark As Read"<br> 
 Then each selected message will be marked as read<br>
 And will no longer be bold
 
@@ -68,7 +68,7 @@ And will appear bold
 Users is able to delete selected messages:
 
 When a user selects messages<br>
-And presses "Delete" (the Trash icon) 
+And presses "Delete" (the Trash icon)<br> 
 Then each selected message is removed from the list<br>
 And the unread count is updated<br>
 And "Select All" button will update
@@ -92,18 +92,18 @@ When a user changes which messages are read / unread<br>
 Then the unread count in the upper right-hand corner is updated<br>
 And when there are 0 unread messages it displays "0 unread messages"<br>
 And when there is 1 unread message it displays "1 unread message"<br>
-And when there's more than 1 unread message it displays "# unread messages"<br>
+And when there's more than 1 unread message it displays "# unread messages"
 
 <b>Select All Button State</b><br> 
 Users should see the state of the select all button change as messages are selected
 
-When no messages are checked 
+When no messages are checked<br> 
 Then the "Select All" button is in the "unchecked" state
 
-When some messages are checked 
+When some messages are checked<br> 
 Then the "Select All" button is in the "half-checked" state
 
-When all messages are checked 
+When all messages are checked<br> 
 Then the "Select All" button is in the "checked" state
 
 
