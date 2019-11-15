@@ -1,7 +1,7 @@
-# react-inbox
+# React-Inbox
 <h1>Google Style Email Client</h1>
 
-Component Hierarchy
+##Component Hierarchy
 
     An App component
     A Messages (or MessageList) component
