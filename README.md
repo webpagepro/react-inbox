@@ -79,7 +79,7 @@ And chooses a label from the "Add Label" dropdown<br>
 Then that label will be added to all selected messages<br>
 But if the message already contains the label then it will not be added twice
 
-<b>When a user selects messages from the sidebar</b><br>
+When a user selects messages from the sidebar<br>
 And chooses a label from the "Remove Label" dropdown<br>
 Then that label will be removed from all of the selected messages that contain the label
 
