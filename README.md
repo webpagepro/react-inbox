@@ -52,7 +52,8 @@ Then it unchecks all messages (and unhighlights them)
 
 <b>Marking Messages as Read</b><br>
 Users are able to mark messages as read<br>
-When a user selects message and presses "Mark As Read" then each selected message will be marked as read<br>
+When a user selects message and presses "Mark As Read" 
+Then each selected message will be marked as read<br>
 And will no longer be bold
 
 Marking Messages as Unread<br>
