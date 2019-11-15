@@ -1,5 +1,5 @@
 # react-inbox
-<b>Google Style Email Client </b>
+<b>Google Style Email Client</b>
 
 Component Hierarchy
 
@@ -8,12 +8,12 @@ Component Hierarchy
     A Message component
     A Toolbar component
 
-#USER STORIES 
+<h1>USER STORIES</h1>
 
-##Message Display<br>
+<h2>essage Display</h2><br>
 <u>Users can see a list of messages with the correct styles</u>
 
-<b>When a user views the app</b><br>
+<h2>When a user views the app</h2><br>
 Then they can see a list of messages with their subjects<br>
 If the message is read, it has the read style<br>
 If the message is unread, it shows as unread<br>
