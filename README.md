@@ -8,9 +8,9 @@ Component Hierarchy
     A Message component
     A Toolbar component
 
-<b>Stories</b> 
+#USER STORIES 
 
-<b>Message Display</b>
+##Message Display<br>
 <u>Users can see a list of messages with the correct styles</u>
 
 <b>When a user views the app</b><br>
@@ -30,11 +30,9 @@ For example if it was starred, and you clicked on it, it will become unstarred
 
 
 <b>Selecting Individual Message</b><br>
-Users should are able to select and deselect individual messages.
-
+Users should are able to select and deselect individual messages.<br>
 When a user checks the checkbox on a message<br>
 Thee message will be highlighted
-
 When a user unchecks the checkbox on a message<br>
 Then the message is not highlighted
 
@@ -70,7 +68,7 @@ And presses "Mark As Unread"<br>
 Then each selected message will be marked as unread<br>
 And will appear bold
 
-<b>Deleting Messages</b><br><br>
+<b>Deleting Messages</b><br>
 Users is able to delete selected messages
 
 When a user selects messages<br>
