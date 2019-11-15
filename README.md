@@ -1,5 +1,5 @@
 # react-inbox
-<b>Google Style Email Client</b>
+<h1>Google Style Email Client</h1>
 
 Component Hierarchy
 
@@ -10,10 +10,10 @@ Component Hierarchy
 
 <h1>USER STORIES</h1>
 
-<h2>essage Display</h2><br>
-<u>Users can see a list of messages with the correct styles</u>
+<b>Message Display</b>
+Users can see a list of messages with the correct styles
 
-<h2>When a user views the app</h2><br>
+<b>When a user views the app</b>
 Then they can see a list of messages with their subjects<br>
 If the message is read, it has the read style<br>
 If the message is unread, it shows as unread<br>
@@ -22,8 +22,7 @@ If there are labels on a message, they will appear<br>
 If the message is starred, then the star is filled in, otherwise it is empty<br>
 
 <b>Starring</b><br>
-<u>Users are able to star and unstar a message.</u>
-
+Users are able to star and unstar a message.<br>
 When a user clicks the star next to a message<br>
 It toggles whether the message is starred or not<br>
 For example if it was starred, and you clicked on it, it will become unstarred
@@ -39,7 +38,6 @@ Then the message is not highlighted
 
 <b>Bulk Select / Deselect</b><br>
 Users is able to select and deselect messages.
-
 Given that no messages are selected<br>
 When a user checks the "Select All" checkbox<br>
 Then it checks all messages (and highlight them)
@@ -101,13 +99,10 @@ And when there's more than 1 unread message it displays "# unread messages"<br>
 <b>Select All Button State</b><br> 
 Users should see the state of the select all button change as messages are selected
 
-When no messages are checked<br>
-Then the "Select All" button is in the "unchecked" state
+When no messages are checked then the "Select All" button is in the "unchecked" state
 
-When some messages are checked<br>
-Then the "Select All" button is in the "half-checked" state
+When some messages are checked then the "Select All" button is in the "half-checked" state
 
-When all messages are checked<br>
-Then the "Select All" button is in the "checked" state
+When all messages are checked then the "Select All" button is in the "checked" state
 
 
