@@ -10,10 +10,10 @@ Component Hierarchy
 
 <b>Stories</b> 
 
-<b>Message Display</b><br>
-Users can see a list of messages with the correct styles
+<b>Message Display</b>
+<u>Users can see a list of messages with the correct styles</u>
 
-When a user views the app</b><br>
+<b>When a user views the app</b><br>
 Then they can see a list of messages with their subjects<br>
 If the message is read, it has the read style<br>
 If the message is unread, it shows as unread<br>
@@ -22,7 +22,7 @@ If there are labels on a message, they will appear<br>
 If the message is starred, then the star is filled in, otherwise it is empty<br>
 
 <b>Starring</b><br>
-Users are able to star and unstar a message.
+<u>Users are able to star and unstar a message.</u>
 
 When a user clicks the star next to a message<br>
 It toggles whether the message is starred or not<br>
@@ -75,7 +75,7 @@ Users is able to delete selected messages
 
 When a user selects messages<br>
 And presses "Delete" (the Trash icon)<br>
-Then each selected message is removed from the list
+Then each selected message is removed from the list<br>
 And the unread count is updated<br>
 And "Select All" button will update
 
